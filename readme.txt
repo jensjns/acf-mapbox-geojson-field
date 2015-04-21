@@ -7,11 +7,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a map field that let's you edit geoJSON-content.
+Adds a map field that lets you edit geoJSON-content.
 
 == Description ==
 
-Adds a map field that let's you edit geoJSON-content.
+Adds a map field that lets you edit geoJSON-content.
 
 = Compatibility =
 
