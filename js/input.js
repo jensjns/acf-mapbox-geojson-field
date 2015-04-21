@@ -19,11 +19,16 @@
 
         if( settings.accessToken && settings.mapId ) {
 
-            var map = L.mapbox.map(mapDOM[0], settings.mapId, settings).setView([40, -74.50], 9);
-
-             //L.featureGroup().addTo(map);
+            var map = L.mapbox.map(mapDOM[0], settings.mapId, settings);
 
             var editableLayer = L.mapbox.featureLayer(jsonData, settings).addTo(map);
+
+            if( jsonData != null ) {
+                map.fitBounds(editableLayer.getBounds());
+            }
+            else {
+                map.setView([0, 0], 1);
+            }
 
             var drawControl = new L.Control.Draw({
                 draw: {
