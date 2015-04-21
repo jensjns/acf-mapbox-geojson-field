@@ -7,27 +7,41 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a map field that lets you edit geoJSON-content.
+Addon for Advanced Custom Fields that adds a MapBox geoJSON field to the available field types.
 
 == Description ==
 
-Adds a map field that lets you edit geoJSON-content.
+This plugin adds a [MapBox](https://www.mapbox.com/)-driven geoJSON-field to the [Advanced Custom Fields](http://www.advancedcustomfields.com/) plugin. Use it to store and manage geoJSON-data along with your posts and pages.
+
+* Add multiple markers.
+* Draw polylines, polygons and rectangles.
+* Supports ACF5 (Pro)
+
+= Data =
+
+The data the field produces is formatted according to the [geoJSON spec](http://geojson.org/geojson-spec.html).
+
+= Rendering =
+
+This plugin does not handle rendering of the data on your frontend in any way. Most of the popular mapping-libraries supports importing geoJSON-formatted data directly via their respective API's.
 
 = Compatibility =
 
 This ACF field type is compatible with:
 * ACF 5
 
+= GitHub =
+
+If you want the latest development version of this plugin it is available over at my [github repository](https://github.com/jensjns/acf-mapbox-geojson-field/). The github repository will always have the latest code but may occasionally be broken and not work at all.
+
 == Installation ==
 
 1. Copy the `acf-mapbox_geojson` folder into your `wp-content/plugins` folder
-2. Activate the MapBox geoJSON plugin via the plugins admin page
-3. Create a new field via ACF and select the MapBox geoJSON type
-4. Please refer to the description for more info regarding the field type settings
-
-== GitHub ==
-
-If you want the latest development version of this plugin it is available over at my [github repository](https://github.com/jensjns/acf-mapbox-geojson-field/). The github repository will always have the latest code but may occasionally be broken and not work at all.
+1. Make sure you have [Advanced Custom Fields](http://www.advancedcustomfields.com/) installed and activated
+1. Activate the MapBox geoJSON plugin via the plugins admin page
+1. Sign up for the free plan over at [MapBox](https://www.mapbox.com/) to get an access token and a map ID
+1. Create a new field via ACF and select the MapBox geoJSON type
+1. Enter your access token and map ID that you can find on your projects page at MapBox
 
 == Changelog ==
 
