@@ -10,12 +10,21 @@
             mapId: mapDOM.attr('data-map-id'),
         };
 
-        var jsonData = null;
+        var setValue = function(value) {
+            $(inputField).val(value);
+        };
+
+        var jsonData = {
+            type: "FeatureCollection",
+            features: [],
+        };
 
         try {
             var existingData = JSON.parse($(inputField).val());
             jsonData = existingData
-        } catch (err) {}
+        } catch (err) {
+            setValue(JSON.stringify(jsonData));
+        }
 
         if( settings.accessToken && settings.mapId ) {
 
@@ -23,7 +32,7 @@
 
             var editableLayer = L.mapbox.featureLayer(jsonData, settings).addTo(map);
 
-            if( jsonData != null ) {
+            if( jsonData.features.length ) {
                 map.fitBounds(editableLayer.getBounds());
             }
             else {
@@ -59,7 +68,7 @@
                     editableLayer.addLayer(e.layer);
                 })
                 .on('draw:created draw:edited draw:deleted', function(e) {
-                    $(inputField).val(JSON.stringify(editableLayer.toGeoJSON()));
+                    setValue(JSON.stringify(editableLayer.toGeoJSON()));
                 });
         }
         else {
