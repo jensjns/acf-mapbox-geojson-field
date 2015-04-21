@@ -3,8 +3,8 @@
 /*
 Plugin Name: Advanced Custom Fields: MapBox geoJSON
 Plugin URI: https://github.com/jensjns/acf-mapbox-geojson-field
-Description: Adds a map field
-Version: 1.0.0
+Description: Adds a map field that let's you edit geoJSON-content.
+Version: 0.0.1
 Author: jensnilsson
 Author URI: http://jensnilsson.nu
 License: GPLv2 or later
