@@ -1,4 +1,4 @@
-=== Advanced Custom Fields: MapBox geoJSON Field ===
+=== Advanced Custom Fields: Mapbox geoJSON Field ===
 Contributors: jensnilsson
 Tags: Advanced Custom Fields, acf, acf5, custom fields, admin, wp-admin, map, mapbox, map-markers, mapping, geojson
 Requires at least: 4.0
@@ -7,11 +7,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Addon for Advanced Custom Fields that adds a MapBox geoJSON field to the available field types.
+Addon for Advanced Custom Fields that adds a Mapbox geoJSON field to the available field types.
 
 == Description ==
 
-This plugin adds a [MapBox](https://www.mapbox.com/)-driven geoJSON-field to the [Advanced Custom Fields](http://www.advancedcustomfields.com/) plugin. Use it to store and manage geoJSON-data along with your posts and pages.
+This plugin adds a [Mapbox](https://www.mapbox.com/)-driven geoJSON-field to the [Advanced Custom Fields](http://www.advancedcustomfields.com/) plugin. Use it to store and manage geoJSON-data along with your posts and pages.
 
 * Add multiple markers.
 * Draw polylines, polygons and rectangles.
@@ -38,10 +38,10 @@ If you want the latest development version of this plugin it is available over a
 
 1. Copy the `acf-mapbox_geojson` folder into your `wp-content/plugins` folder
 1. Make sure you have [Advanced Custom Fields](http://www.advancedcustomfields.com/) installed and activated
-1. Activate the MapBox geoJSON plugin via the plugins admin page
-1. Sign up for the free plan over at [MapBox](https://www.mapbox.com/) to get an access token and a map ID
-1. Create a new field via ACF and select the MapBox geoJSON type
-1. Enter your access token and map ID that you can find on your projects page at MapBox
+1. Activate the Mapbox geoJSON plugin via the plugins admin page
+1. Sign up for the free plan over at [Mapbox](https://www.mapbox.com/) to get an access token and a map ID
+1. Create a new field via ACF and select the Mapbox geoJSON type
+1. Enter your access token and map ID that you can find on your projects page at Mapbox
 
 == Changelog ==
 

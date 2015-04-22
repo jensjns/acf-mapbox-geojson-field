@@ -20,7 +20,7 @@ class acf_field_mapbox_geojson extends acf_field {
     {
         // vars
         $this->name = 'mapbox_geojson';
-        $this->label = __('MapBox geoJSON');
+        $this->label = __('Mapbox geoJSON');
         $this->category = __("Basic",'acf'); // Basic, Content, Choice, etc
         $this->defaults = array(
             // add default here to merge into your field.

@@ -29,7 +29,7 @@ class acf_field_mapbox_geojson extends acf_field {
         *  label (string) Multiple words, can include spaces, visible when selecting a field type
         */
 
-        $this->label = __('MapBox geoJSON', 'acf-mapbox_geojson');
+        $this->label = __('Mapbox geoJSON', 'acf-mapbox_geojson');
 
 
         /*
