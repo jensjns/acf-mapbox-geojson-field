@@ -185,7 +185,7 @@ class acf_field_mapbox_geojson extends acf_field {
         wp_register_script( 'acf-input-mapbox_geojson_leaflet_draw_js', 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js', array('acf-input-mapbox_geojson_mapbox_js') );
         wp_enqueue_script( 'acf-input-mapbox_geojson_leaflet_draw_js' );
 
-        wp_register_script( 'acf-input-mapbox_geojson', "{$dir}js/input.js", array('acf-input-mapbox_geojson_mapbox_js', 'acf-input-mapbox_geojson_leaflet_draw_js'), '0.0.1', true );
+        wp_register_script( 'acf-input-mapbox_geojson', "{$dir}js/input.js", array('acf-input-mapbox_geojson_mapbox_js', 'acf-input-mapbox_geojson_leaflet_draw_js'), '0.0.2', true );
         wp_enqueue_script( 'acf-input-mapbox_geojson' );
 
 

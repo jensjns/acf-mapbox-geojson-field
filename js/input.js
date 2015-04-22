@@ -72,6 +72,7 @@
                 });
         }
         else {
+            // TODO: display an error in mapDOM
             console.log('mapbox-geojson-err-1');
         }
 

@@ -15,7 +15,7 @@ This plugin adds a [Mapbox](https://www.mapbox.com/)-driven geoJSON-field to the
 
 * Add multiple markers.
 * Draw polylines, polygons and rectangles.
-* Supports ACF5 (Pro)
+* Supports ACF4 and ACF5 (Pro)
 
 = Data =
 
@@ -28,7 +28,9 @@ This plugin does not handle rendering of the data on your frontend in any way. M
 = Compatibility =
 
 This ACF field type is compatible with:
+
 * ACF 5
+* ACF 4
 
 = GitHub =
 
@@ -44,6 +46,9 @@ If you want the latest development version of this plugin it is available over a
 1. Enter your access token and map ID that you can find on your projects page at Mapbox
 
 == Changelog ==
+
+= 0.0.2 =
+* ACF 4 support
 
 = 0.0.1 =
 * Initial Release.

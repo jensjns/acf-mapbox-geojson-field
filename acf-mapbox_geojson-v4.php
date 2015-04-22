@@ -23,9 +23,9 @@ class acf_field_mapbox_geojson extends acf_field {
         $this->label = __('Mapbox geoJSON');
         $this->category = __("Basic",'acf'); // Basic, Content, Choice, etc
         $this->defaults = array(
-            // add default here to merge into your field.
-            // This makes life easy when creating the field options as you don't need to use any if( isset('') ) logic. eg:
-            //'preview_size' => 'thumbnail'
+            'mapbox_access_token'   => '',
+            'mapbox_map_id'         => '',
+            'height'                => 400,
         );
 
 
@@ -37,7 +37,7 @@ class acf_field_mapbox_geojson extends acf_field {
         $this->settings = array(
             'path' => apply_filters('acf/helpers/get_path', __FILE__),
             'dir' => apply_filters('acf/helpers/get_dir', __FILE__),
-            'version' => '0.0.1'
+            'version' => '0.0.2'
         );
 
     }
@@ -71,21 +71,52 @@ class acf_field_mapbox_geojson extends acf_field {
         ?>
 <tr class="field_option field_option_<?php echo $this->name; ?>">
     <td class="label">
-        <label><?php _e("Preview Size",'acf'); ?></label>
-        <p class="description"><?php _e("Thumbnail is advised",'acf'); ?></p>
+        <label><?php _e("API access token",'acf'); ?></label>
+        <p class="description"><?php _e("You can find it at <a href='https://www.mapbox.com/projects/' target='_blank'>https://www.mapbox.com/projects/</a>",'acf'); ?></p>
     </td>
     <td>
         <?php
 
         do_action('acf/create_field', array(
-            'type'      =>  'radio',
-            'name'      =>  'fields['.$key.'][preview_size]',
-            'value'     =>  $field['preview_size'],
-            'layout'    =>  'horizontal',
-            'choices'   =>  array(
-                'thumbnail' => __('Thumbnail'),
-                'something_else' => __('Something Else'),
-            )
+            'type'      =>  'text',
+            'name'      =>  'fields['.$key.'][mapbox_access_token]',
+            'value'     =>  $field['mapbox_access_token'],
+        ));
+
+        ?>
+    </td>
+</tr>
+
+<tr class="field_option field_option_<?php echo $this->name; ?>">
+    <td class="label">
+        <label><?php _e("Map ID",'acf'); ?></label>
+        <p class="description"><?php _e("ID of you map project, you can find it at <a href='https://www.mapbox.com/projects/' target='_blank'>https://www.mapbox.com/projects/</a>",'acf'); ?></p>
+    </td>
+    <td>
+        <?php
+
+        do_action('acf/create_field', array(
+            'type'      =>  'text',
+            'name'      =>  'fields['.$key.'][mapbox_map_id]',
+            'value'     =>  $field['mapbox_map_id'],
+        ));
+
+        ?>
+    </td>
+</tr>
+
+<tr class="field_option field_option_<?php echo $this->name; ?>">
+    <td class="label">
+        <label><?php _e("Height (px)",'acf'); ?></label>
+        <p class="description"><?php _e("Height of the map",'acf'); ?></p>
+    </td>
+    <td>
+        <?php
+
+        do_action('acf/create_field', array(
+            'type'      =>  'number',
+            'name'      =>  'fields['.$key.'][height]',
+            'value'     =>  $field['height'],
         ));
 
         ?>
@@ -121,7 +152,8 @@ class acf_field_mapbox_geojson extends acf_field {
         // create Field HTML
         ?>
         <div>
-
+            <input class="mapbox-geojson-field" type="hidden" name="<?php echo esc_attr($field['name']) ?>" value='<?php echo $field['value'] ?>' />
+            <div class="mapbox-geojson-map" data-access-token="<?php echo esc_attr($field['mapbox_access_token']) ?>" data-map-id="<?php echo esc_attr($field['mapbox_map_id']) ?>" style="height:<?php echo $field['height'] ?>px;"></div>
         </div>
         <?php
     }
@@ -143,22 +175,23 @@ class acf_field_mapbox_geojson extends acf_field {
     {
         // Note: This function can be removed if not used
 
+        // register & include JS
+        wp_register_script( 'acf-input-mapbox_geojson_mapbox_js', 'https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js' );
+        wp_enqueue_script( 'acf-input-mapbox_geojson_mapbox_js' );
 
-        // register ACF scripts
-        wp_register_script( 'acf-input-mapbox_geojson', $this->settings['dir'] . 'js/input.js', array('acf-input'), $this->settings['version'] );
-        wp_register_style( 'acf-input-mapbox_geojson', $this->settings['dir'] . 'css/input.css', array('acf-input'), $this->settings['version'] );
+        wp_register_script( 'acf-input-mapbox_geojson_leaflet_draw_js', 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js', array('acf-input-mapbox_geojson_mapbox_js') );
+        wp_enqueue_script( 'acf-input-mapbox_geojson_leaflet_draw_js' );
+
+        wp_register_script( 'acf-input-mapbox_geojson', $this->settings['dir'] . "js/input.js", array('acf-input-mapbox_geojson_mapbox_js', 'acf-input-mapbox_geojson_leaflet_draw_js'), $this->settings['version'], true );
+        wp_enqueue_script( 'acf-input-mapbox_geojson' );
 
 
-        // scripts
-        wp_enqueue_script(array(
-            'acf-input-mapbox_geojson',
-        ));
+        // register & include CSS
+        wp_register_style( 'acf-input-mapbox_geojson_mapbox_css', 'https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' );
+        wp_enqueue_style( 'acf-input-mapbox_geojson_mapbox_css' );
 
-        // styles
-        wp_enqueue_style(array(
-            'acf-input-mapbox_geojson',
-        ));
-
+        wp_register_style( 'acf-input-mapbox_geojson_leaflet_draw_css', 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' );
+        wp_enqueue_style( 'acf-input-mapbox_geojson_leaflet_draw_css' );
 
     }
 
