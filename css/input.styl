@@ -1,0 +1,36 @@
+.mapbox-geojson-map-container
+    overflow hidden
+    position relative
+    .mapbox-geojson-sidebar
+        position absolute
+        top 5px
+        right 0
+        bottom 5px
+        transform translateX(200px)
+        width 200px
+        background white
+        transition all .1s ease-in
+        border-top-left-radius 3px
+        border-bottom-left-radius 3px
+        &.mapbox-geojson-sidebar-open
+            transform translateX(0)
+            box-shadow 0 0 6px rgba(0, 0, 0, .4)
+            .mapbox-geojson-sidebar-toggle
+                .dashicons-arrow-left
+                    transform rotate(180deg)
+        .mapbox-geojson-sidebar-toggle
+            position absolute
+            top 5px
+            left -27px
+            background white
+            border-top-left-radius 3px
+            border-bottom-left-radius 3px
+            width 26px
+            height 26px
+            line-height 26px
+            border 1px solid #999
+            border-color rgba(0,0,0,.4)
+            border-right 0
+            cursor pointer
+            .dashicons-arrow-left
+                padding 3px
