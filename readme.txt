@@ -2,7 +2,7 @@
 Contributors: jensnilsson
 Tags: Advanced Custom Fields, acf, acf5, custom fields, admin, wp-admin, map, mapbox, map-markers, mapping, geojson
 Requires at least: 4.0
-Tested up to: 4.1.2
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +46,9 @@ If you want the latest development version of this plugin it is available over a
 1. Enter your access token and map ID that you can find on your projects page at Mapbox
 
 == Changelog ==
+
+= 0.0.3 =
+* Added sidebar for selecting and deleting features
 
 = 0.0.2 =
 * ACF 4 support

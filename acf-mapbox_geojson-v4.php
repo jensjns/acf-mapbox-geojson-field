@@ -37,7 +37,7 @@ class acf_field_mapbox_geojson extends acf_field {
         $this->settings = array(
             'path' => apply_filters('acf/helpers/get_path', __FILE__),
             'dir' => apply_filters('acf/helpers/get_dir', __FILE__),
-            'version' => '0.0.2'
+            'version' => '0.0.3'
         );
 
     }
@@ -193,7 +193,7 @@ class acf_field_mapbox_geojson extends acf_field {
 
 
         // register & include CSS
-        wp_register_style( 'acf-input-mapbox_geojson', $this->settings['dir'] . "css/input.css" );
+        wp_register_style( 'acf-input-mapbox_geojson', $this->settings['dir'] . "css/input.css", array(), '0.0.3' );
         wp_enqueue_style( 'acf-input-mapbox_geojson' );
 
         wp_register_style( 'acf-input-mapbox_geojson_mapbox_css', 'https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' );
